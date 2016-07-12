@@ -175,7 +175,39 @@
         return signal;
     }
      */
+    
+    // 创建信号
+    RACSignal *signal = [RACSignal createSignal:^RACDisposable *(id<RACSubscriber> subscriber) {
+        [subscriber sendNext:@"signal"];
+        [subscriber sendCompleted];
+        return nil;
+    }];
+    
+    // 订阅信号
+    [signal subscribeNext:^(id x) {
+        NSLog(@" x === %@", x);
+    } error:^(NSError *error) {
+        NSLog(@"error === %@", error);
+    } completed:^{
+        NSLog(@"complete");
+    }];
+    // 可以看到, 创建信号时我们sent了一个signal, 在我们订阅subscribeNext时储存在x中的就是这个字符串signal.从这里看出来, 不但我们可以给订阅者传递字符串, 只要是一个类一个对象我们都可以传递
+    // 另一方面控制台输出了conpleted说明订阅信号部分的completed块下的方法也被执行了, 这是因为在创建signal后又发送了一个colpleted, 同理, error下的方法我们也可以这样调用
+    
+    /**
+     *  信号的处理
+     */
+    // 1.map 映射, 创建一个订阅者的映射并且返回数据
+    [[self.usernameTextField.rac_textSignal map:^id(id value) {
+        NSLog(@"value --- %@", value);
+        return @1;
+    }] subscribeNext:^(id x) {
+        NSLog(@"x === %@", x);
+    }];
+    // 还是监听textfield的状态变化, 可以看到当信号被订阅变成热信号后, 这里的map构造的映射块value就是textfield控件中的字符串变化, 但是订阅者X的值就是映射者的返回值1
 }
+
+
 
 //------------------------------------------ DELEGATE -----------------------------------------------//
 - (void)RACWithDelegate {
