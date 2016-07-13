@@ -205,6 +205,94 @@
         NSLog(@"x === %@", x);
     }];
     // 还是监听textfield的状态变化, 可以看到当信号被订阅变成热信号后, 这里的map构造的映射块value就是textfield控件中的字符串变化, 但是订阅者X的值就是映射者的返回值1
+    // 根据这个功能我们就可以对我们监测的东西和我们需要的东西进行转换, 比如监听了字符串变化, 我们需要的时间变化后的字符串长度而不是字符串变化本身, 则可以在map的返回值中返回text.length, 就可以实现捕获到的字符串长度, 甚至做一个映射表, 将各个变化进行一对一或者一对多的处理
+    
+    // 2.filter
+    // filter就是过滤, 它可以筛选出需要的信号变化
+    [[self.passwordTextField.rac_textSignal filter:^BOOL(NSString *value) {
+        return [value length] > 3;
+    }] subscribeNext:^(id x) {
+        NSLog(@"x = %@", x);
+    }];
+    // 过滤 当self.password的字符串长度大于三是它的过滤条件, 达到过滤条件再执行subscribeNext块中的语法
+    
+    // 3.take/skip/repeat
+    // take是获取, skip是跳过, 这两个方法后面跟着的都是NSInteger, 所以take:2就是获取前两个信号, skip:2就是跳过前两个, repeat是重复发送信号
+    RACSignal *signal2 = [[RACSignal createSignal:^RACDisposable *(id<RACSubscriber> subscriber) {
+        [subscriber sendNext:@"1"];
+        [subscriber sendNext:@"2"];
+        [subscriber sendNext:@"3"];
+        [subscriber sendNext:@"4"];
+        [subscriber sendNext:@"5"];
+        [subscriber sendCompleted];
+        return nil;
+    }] take:2];
+    
+    [signal2 subscribeNext:^(id x) {
+        NSLog(@"signal2 ---- %@", x);
+    } completed:^{
+        NSLog(@"completed");
+    }];
+    // 这个demo只会输出前两个信号1和2还有完成信号completed, skip, repeat同理
+    // 相似的还有takeLast, takeUntil, takeWhileBlock, skipWillBlock, skipUntilBlock, repeatWhileBlock 都可以根据字面意思来理解
+    
+    // 4.delay
+    // 延时信号, 顾名思义, 既是延迟发送信号
+    
+    RACSignal *delaySingal = [[RACSignal createSignal:^RACDisposable *(id<RACSubscriber> subscriber) {
+        [subscriber sendNext:@"dalay"];
+        [subscriber sendCompleted];
+        return nil;
+    }] delay:2];
+    
+    NSLog(@"tag");
+    
+    [delaySingal subscribeNext:^(id x) {
+        NSLog(@"delaySingal == %@", x);
+    }];
+    //2016-07-13 10:27:00.693 RACDemo[3129:309439] tag
+    //2016-07-13 10:27:02.886 RACDemo[3129:309439] delaySingal == dalay
+    
+    // 看时间可以发现订阅的信号延时2秒之后才收到信号打印出X的值, 还有0.1秒的误差是因为运行到不同代码的时间差
+    
+    // 5.throttle
+    // 节流, 在我们做搜索框的时候, 有时候需求的实时搜索, 即用户每输入字符, view都需求展现搜索结果, 这时如果用户搜索的字符串较长, 那么由于网络请求的延时可能造成UI显示错误, 并且多次不必要的请求还会加大服务器的压力, 这显然是不合理的, 此时我们就需要用到节流
+    [[[self.usernameTextField rac_textSignal] throttle:0.5] subscribeNext:^(id x) {
+        NSLog(@"throttle --- %@", x);
+    }];
+    // 加了节流管道, 后面跟上了类型为NSTimeInterval的参数后, 只有0.5s内信号不产生变化才会发送请求, 这样快速的输入也不会造成多次输出
+    
+    // 6.distinctUntilChanged
+    // 网络请求中为了减轻服务器压力, 无用的请求我们应该尽可能不发送, distinctUntilChanged的作用是使RAC不会连续发送两次相同的信号, 这样就解决了这个问题
+    [[[self.passwordTextField rac_textSignal] distinctUntilChanged] subscribeNext:^(id x) {
+        NSLog(@"distinctUntilChangde --- %@", x);
+    }];
+    
+    // 7.timeout
+    // 超时信号, 当超时限定时间后会给订阅者发送error信号
+    
+    RACSignal *timeoutSignal = [[RACSignal createSignal:^RACDisposable *(id<RACSubscriber> subscriber) {
+        [[RACScheduler mainThreadScheduler] afterDelay:3 schedule:^{
+            [subscriber sendNext:@"dalay"];
+            [subscriber sendCompleted];
+        }];
+        return nil;
+    }] timeout:2 onScheduler:[RACScheduler mainThreadScheduler]];
+    
+    [timeoutSignal subscribeNext:^(id x) {
+        NSLog(@"timeoutSignal --- %@", x);
+    } error:^(NSError *error) {
+        NSLog(@"error ---- %@", error);
+    }];
+    // 延时信号的衍生 在RAC的主线程里注册一个信号, 延时3秒钟, 但是加了timeout:2秒的限定, 所以内部主线程的信号是一个超时信号, 这个信号被订阅后由于超时, 不会执行订阅成功的输出X方法, 而是跳到error的快输出了错误信息, timeout再用RAC封装网络请求的同时可以节省不少的代码量
+    
+    // 8.ignore
+    // 忽略信号 制定一个任意类型的两, 当需要发送信号是将进行判断, 若相同该信号会被忽略发送
+    [[[self.passwordTextField rac_textSignal] ignore:@"good"] subscribeNext:^(NSString *value) {
+        NSLog(@"ignore --- %@", value);
+    }];
+    
+    
 }
 
 
