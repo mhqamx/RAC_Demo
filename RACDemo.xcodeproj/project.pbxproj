@@ -26,6 +26,8 @@
 		05BC38B01D34903100E1AE05 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 05BC38AE1D34903100E1AE05 /* LaunchScreen.storyboard */; };
 		05BC38BB1D34903100E1AE05 /* RACDemoTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 05BC38BA1D34903100E1AE05 /* RACDemoTests.m */; };
 		05BC38C61D34903100E1AE05 /* RACDemoUITests.m in Sources */ = {isa = PBXBuildFile; fileRef = 05BC38C51D34903100E1AE05 /* RACDemoUITests.m */; };
+		05C2F59A1D38792D0057DEDB /* MXMainViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 05C2F5991D38792D0057DEDB /* MXMainViewController.m */; };
+		05C2F59D1D38868B0057DEDB /* MXSecViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 05C2F59C1D38868B0057DEDB /* MXSecViewController.m */; };
 		6B99729CB534724616696C13 /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = B958E80BC3ECB34704031796 /* libPods.a */; };
 /* End PBXBuildFile section */
 
@@ -88,6 +90,10 @@
 		05BC38C11D34903100E1AE05 /* RACDemoUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = RACDemoUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		05BC38C51D34903100E1AE05 /* RACDemoUITests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = RACDemoUITests.m; sourceTree = "<group>"; };
 		05BC38C71D34903100E1AE05 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		05C2F5981D38792D0057DEDB /* MXMainViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MXMainViewController.h; sourceTree = "<group>"; };
+		05C2F5991D38792D0057DEDB /* MXMainViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MXMainViewController.m; sourceTree = "<group>"; };
+		05C2F59B1D38868B0057DEDB /* MXSecViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MXSecViewController.h; sourceTree = "<group>"; };
+		05C2F59C1D38868B0057DEDB /* MXSecViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MXSecViewController.m; sourceTree = "<group>"; };
 		AB01BDA72F8A978990E31A8C /* Pods.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.release.xcconfig; path = "Pods/Target Support Files/Pods/Pods.release.xcconfig"; sourceTree = "<group>"; };
 		B958E80BC3ECB34704031796 /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		F6540F532F5B03B229BEBAB9 /* Pods.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.debug.xcconfig; path = "Pods/Target Support Files/Pods/Pods.debug.xcconfig"; sourceTree = "<group>"; };
@@ -181,6 +187,10 @@
 				05BC38A41D34903100E1AE05 /* AppDelegate.m */,
 				05BC38A61D34903100E1AE05 /* ViewController.h */,
 				05BC38A71D34903100E1AE05 /* ViewController.m */,
+				05C2F5981D38792D0057DEDB /* MXMainViewController.h */,
+				05C2F5991D38792D0057DEDB /* MXMainViewController.m */,
+				05C2F59B1D38868B0057DEDB /* MXSecViewController.h */,
+				05C2F59C1D38868B0057DEDB /* MXSecViewController.m */,
 				05BC38A91D34903100E1AE05 /* Main.storyboard */,
 				05BC38AC1D34903100E1AE05 /* Assets.xcassets */,
 				05BC38AE1D34903100E1AE05 /* LaunchScreen.storyboard */,
@@ -298,6 +308,7 @@
 		05BC38951D34903100E1AE05 /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
+				CLASSPREFIX = MX;
 				LastUpgradeCheck = 0730;
 				ORGANIZATIONNAME = MAXIAO;
 				TargetAttributes = {
@@ -418,6 +429,7 @@
 				054860B11D34B9E1008B4D56 /* AFHTTPRequestOperation.m in Sources */,
 				054860B41D34B9E1008B4D56 /* AFNetworkReachabilityManager.m in Sources */,
 				054860B91D34B9E1008B4D56 /* AFURLSessionManager.m in Sources */,
+				05C2F59A1D38792D0057DEDB /* MXMainViewController.m in Sources */,
 				054860B71D34B9E1008B4D56 /* AFURLRequestSerialization.m in Sources */,
 				0548609B1D34B9AD008B4D56 /* GFHTTPManger.m in Sources */,
 				054860B81D34B9E1008B4D56 /* AFURLResponseSerialization.m in Sources */,
@@ -428,6 +440,7 @@
 				05BC38A21D34903100E1AE05 /* main.m in Sources */,
 				0548609C1D34B9AD008B4D56 /* GFHTTPManger+Uniform.m in Sources */,
 				054860B31D34B9E1008B4D56 /* AFHTTPSessionManager.m in Sources */,
+				05C2F59D1D38868B0057DEDB /* MXSecViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

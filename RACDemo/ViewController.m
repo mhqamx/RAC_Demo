@@ -7,6 +7,7 @@
 //
 
 #import "ViewController.h"
+#import "MXMainViewController.h"
 #import <ReactiveCocoa.h>
 @interface ViewController ()<UIAlertViewDelegate>
 @property (nonatomic, strong) RACCommand  *commandDelete;
@@ -14,6 +15,8 @@
 @property (nonatomic, strong) UIButton  *loginButton;
 @property (nonatomic, strong) UITextField  *usernameTextField;
 @property (nonatomic, strong) UITextField  *passwordTextField;
+@property (nonatomic, strong) UIButton  *button;
+
 
 @end
 
@@ -50,6 +53,16 @@
     return _loginButton;
 }
 
+- (UIButton *)button {
+    if (!_button) {
+        _button = [[UIButton alloc] initWithFrame:CGRectMake(100, 500, 100, 30)];
+        _button.backgroundColor = [UIColor cyanColor];
+        [_button setTitle:@"push" forState:(UIControlStateNormal)];
+        [_button setTitleColor:[UIColor whiteColor] forState:(UIControlStateNormal)];
+    }
+    return _button;
+}
+
 #pragma mark - Life Cycle
 - (void)viewDidLoad {
     [super viewDidLoad];
@@ -81,17 +94,58 @@
     [myButton setTitle:@"native_Button" forState:(UIControlStateNormal)];
     [self.view addSubview:myButton];
     
-    self.deleteButton = [[UIButton alloc] initWithFrame:CGRectMake(100, 300, 100, 30)];
+    self.deleteButton = [[UIButton alloc] initWithFrame:CGRectMake(250, 200, 100, 30)];
     self.deleteButton.backgroundColor = [UIColor redColor];
     [self.deleteButton setTitle:@"RAC_Button" forState:(UIControlStateNormal)];
     [self.deleteButton setTitleColor:[UIColor whiteColor] forState:(UIControlStateNormal)];
     [self.view addSubview:self.deleteButton];
+    
+    
+    
+    /**
+     *  RAC中button的点击事件响应
+     *  rac_signalForControlEvents 内部方法:
+     
+         - (RACSignal *)rac_signalForControlEvents:(UIControlEvents)controlEvents {
+         @weakify(self);
+         
+         return [[RACSignal
+         createSignal:^(id<RACSubscriber> subscriber) {
+         @strongify(self);
+         
+         [self addTarget:subscriber action:@selector(sendNext:) forControlEvents:controlEvents];
+         [self.rac_deallocDisposable addDisposable:[RACDisposable disposableWithBlock:^{
+         [subscriber sendCompleted];
+         }]];
+         
+         return [RACDisposable disposableWithBlock:^{
+         @strongify(self);
+         [self removeTarget:subscriber action:@selector(sendNext:) forControlEvents:controlEvents];
+         }];
+         }]
+         setNameWithFormat:@"%@ -rac_signalForControlEvents: %lx", self.rac_description, (unsigned long)controlEvents];
+         }
+
+     可见, rac_方法在内部创建了一个signal信号来响应button的点击事件, 并且还一并创建了dealloc方法
+     rac_这类方法好像可以响应一些系统自带的控件状态变化的macro, 用这个方法可以控制集成UIControl的部分控件
+     
+     */
+    [[self.button rac_signalForControlEvents:(UIControlEventTouchUpInside)] subscribeNext:^(id x) {
+        NSLog(@"button ---- %@", [x class]);
+        [self.navigationController pushViewController:[MXMainViewController new] animated:YES];
+    }];
     
     /**
                                                 使用RAC
      */
     
 //------------------------------------------ TARGET-ACTION -----------------------------------------------//
+    
+    [self.view addSubview:self.usernameTextField];
+    [self.view addSubview:self.passwordTextField];
+    [self.view addSubview:self.loginButton];
+    [self.view addSubview:self.button];
+    
     /**
      RAC下的button点击事件
      */
@@ -99,9 +153,7 @@
         return [RACSignal return:self.commandDelete];
     }];
     
-    [self.view addSubview:self.usernameTextField];
-    [self.view addSubview:self.passwordTextField];
-    [self.view addSubview:self.loginButton];
+
     
     /**
      *  RAC下监听textfield的状态, 这个效果可以用来输入密码之后自动登录
