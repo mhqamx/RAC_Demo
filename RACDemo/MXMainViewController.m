@@ -49,7 +49,6 @@
     
     [self.view addSubview:self.msgLabel];
     
-    
     UIButton *button = [[UIButton alloc] initWithFrame:CGRectMake(100, 100, 100, 30)];
     button.backgroundColor = [UIColor redColor];
     [button setTitle:@"push" forState:(UIControlStateNormal)];
@@ -62,7 +61,6 @@
         vc.kdelegate = self;
         [self.navigationController pushViewController:vc animated:YES];
     }];
-    
 
 }
 
