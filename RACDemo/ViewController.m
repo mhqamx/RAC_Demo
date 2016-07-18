@@ -28,6 +28,7 @@
         _usernameTextField = [[UITextField alloc] initWithFrame:CGRectMake(100, 250, 100, 30)];
         _usernameTextField.placeholder = @"username";
         _usernameTextField.backgroundColor = [UIColor redColor];
+        _usernameTextField.textColor = [UIColor whiteColor];
     }
     return _usernameTextField;
 }
@@ -37,7 +38,7 @@
         _passwordTextField = [[UITextField alloc] initWithFrame:CGRectMake(100, 300, 100, 30)];
         _passwordTextField.placeholder = @"pw";
         _passwordTextField.backgroundColor = [UIColor blackColor];
-        _passwordTextField.backgroundColor = [UIColor whiteColor];
+        _passwordTextField.textColor = [UIColor whiteColor];
     }
     return _passwordTextField;
 }
@@ -150,6 +151,7 @@
      RAC下的button点击事件
      */
     self.deleteButton.rac_command = [[RACCommand alloc] initWithSignalBlock:^RACSignal *(id input) {
+        NSLog(@"RAC --- Action");
         return [RACSignal return:self.commandDelete];
     }];
     
