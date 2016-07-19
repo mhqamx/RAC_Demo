@@ -18,6 +18,8 @@
 		054860B71D34B9E1008B4D56 /* AFURLRequestSerialization.m in Sources */ = {isa = PBXBuildFile; fileRef = 054860AC1D34B9E1008B4D56 /* AFURLRequestSerialization.m */; };
 		054860B81D34B9E1008B4D56 /* AFURLResponseSerialization.m in Sources */ = {isa = PBXBuildFile; fileRef = 054860AE1D34B9E1008B4D56 /* AFURLResponseSerialization.m */; };
 		054860B91D34B9E1008B4D56 /* AFURLSessionManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 054860B01D34B9E1008B4D56 /* AFURLSessionManager.m */; };
+		059FA0231D3E0D5B00F85639 /* MXHomePageViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 059FA0221D3E0D5B00F85639 /* MXHomePageViewController.m */; };
+		059FA0261D3E0F2900F85639 /* MXReviewViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 059FA0251D3E0F2900F85639 /* MXReviewViewController.m */; };
 		05BC38A21D34903100E1AE05 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 05BC38A11D34903100E1AE05 /* main.m */; };
 		05BC38A51D34903100E1AE05 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 05BC38A41D34903100E1AE05 /* AppDelegate.m */; };
 		05BC38A81D34903100E1AE05 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 05BC38A71D34903100E1AE05 /* ViewController.m */; };
@@ -74,6 +76,11 @@
 		054860AE1D34B9E1008B4D56 /* AFURLResponseSerialization.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AFURLResponseSerialization.m; sourceTree = "<group>"; };
 		054860AF1D34B9E1008B4D56 /* AFURLSessionManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AFURLSessionManager.h; sourceTree = "<group>"; };
 		054860B01D34B9E1008B4D56 /* AFURLSessionManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AFURLSessionManager.m; sourceTree = "<group>"; };
+		059FA0211D3E0D5B00F85639 /* MXHomePageViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MXHomePageViewController.h; sourceTree = "<group>"; };
+		059FA0221D3E0D5B00F85639 /* MXHomePageViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MXHomePageViewController.m; sourceTree = "<group>"; };
+		059FA0241D3E0F2900F85639 /* MXReviewViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MXReviewViewController.h; sourceTree = "<group>"; };
+		059FA0251D3E0F2900F85639 /* MXReviewViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MXReviewViewController.m; sourceTree = "<group>"; };
+		059FA0271D3E0F8900F85639 /* PrefixHeader.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PrefixHeader.pch; sourceTree = "<group>"; };
 		05BC389D1D34903100E1AE05 /* RACDemo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = RACDemo.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		05BC38A11D34903100E1AE05 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		05BC38A31D34903100E1AE05 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -151,6 +158,15 @@
 			path = AFNetworking;
 			sourceTree = "<group>";
 		};
+		059FA0201D3E0D4D00F85639 /* HomePage */ = {
+			isa = PBXGroup;
+			children = (
+				059FA0211D3E0D5B00F85639 /* MXHomePageViewController.h */,
+				059FA0221D3E0D5B00F85639 /* MXHomePageViewController.m */,
+			);
+			path = HomePage;
+			sourceTree = "<group>";
+		};
 		05BC38941D34903100E1AE05 = {
 			isa = PBXGroup;
 			children = (
@@ -176,6 +192,7 @@
 		05BC389F1D34903100E1AE05 /* RACDemo */ = {
 			isa = PBXGroup;
 			children = (
+				059FA0201D3E0D4D00F85639 /* HomePage */,
 				0548609D1D34B9E1008B4D56 /* AFNetworking */,
 				054860951D34B9AD008B4D56 /* GFHTTPManger.h */,
 				054860961D34B9AD008B4D56 /* GFHTTPManger.m */,
@@ -191,10 +208,13 @@
 				05C2F5991D38792D0057DEDB /* MXMainViewController.m */,
 				05C2F59B1D38868B0057DEDB /* MXSecViewController.h */,
 				05C2F59C1D38868B0057DEDB /* MXSecViewController.m */,
+				059FA0241D3E0F2900F85639 /* MXReviewViewController.h */,
+				059FA0251D3E0F2900F85639 /* MXReviewViewController.m */,
 				05BC38A91D34903100E1AE05 /* Main.storyboard */,
 				05BC38AC1D34903100E1AE05 /* Assets.xcassets */,
 				05BC38AE1D34903100E1AE05 /* LaunchScreen.storyboard */,
 				05BC38B11D34903100E1AE05 /* Info.plist */,
+				059FA0271D3E0F8900F85639 /* PrefixHeader.pch */,
 				05BC38A01D34903100E1AE05 /* Supporting Files */,
 			);
 			path = RACDemo;
@@ -428,12 +448,14 @@
 				054860B61D34B9E1008B4D56 /* AFURLConnectionOperation.m in Sources */,
 				054860B11D34B9E1008B4D56 /* AFHTTPRequestOperation.m in Sources */,
 				054860B41D34B9E1008B4D56 /* AFNetworkReachabilityManager.m in Sources */,
+				059FA0261D3E0F2900F85639 /* MXReviewViewController.m in Sources */,
 				054860B91D34B9E1008B4D56 /* AFURLSessionManager.m in Sources */,
 				05C2F59A1D38792D0057DEDB /* MXMainViewController.m in Sources */,
 				054860B71D34B9E1008B4D56 /* AFURLRequestSerialization.m in Sources */,
 				0548609B1D34B9AD008B4D56 /* GFHTTPManger.m in Sources */,
 				054860B81D34B9E1008B4D56 /* AFURLResponseSerialization.m in Sources */,
 				05BC38A81D34903100E1AE05 /* ViewController.m in Sources */,
+				059FA0231D3E0D5B00F85639 /* MXHomePageViewController.m in Sources */,
 				05BC38A51D34903100E1AE05 /* AppDelegate.m in Sources */,
 				054860B21D34B9E1008B4D56 /* AFHTTPRequestOperationManager.m in Sources */,
 				054860B51D34B9E1008B4D56 /* AFSecurityPolicy.m in Sources */,

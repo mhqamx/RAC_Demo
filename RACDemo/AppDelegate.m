@@ -7,8 +7,7 @@
 //
 
 #import "AppDelegate.h"
-#import "ViewController.h"
-#import "MXMainViewController.h"
+#import "MXHomePageViewController.h"
 @interface AppDelegate ()
 
 @end
@@ -22,7 +21,7 @@
     self.window.backgroundColor = [UIColor whiteColor];
     [self.window makeKeyAndVisible];
     
-    UINavigationController *navi = [[UINavigationController alloc] initWithRootViewController:[ViewController new]];
+    UINavigationController *navi = [[UINavigationController alloc] initWithRootViewController:[MXHomePageViewController new]];
     self.window.rootViewController = navi;
     
     
