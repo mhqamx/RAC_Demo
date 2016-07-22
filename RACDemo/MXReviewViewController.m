@@ -57,16 +57,38 @@
     [self.view addSubview:self.passwordTextField];
     [self.view addSubview:self.loginButton];
     
-    [[[self.usernameTextField rac_textSignal] filter:^BOOL(NSNumber *length) {
-        return [length integerValue] > 3;
+    [[[self.usernameTextField rac_textSignal] filter:^BOOL(id d) {
+        NSLog(@"%ld", [d length]);
+        return [d length] > 3;
     }] subscribeNext:^(id x) {
         NSLog(@"username ---- %@", x);
     }];
     
-    [[[self.passwordTextField rac_textSignal] filter:^BOOL(NSNumber *length) {
-        return [length integerValue] > 3;
+    [[[self.passwordTextField rac_textSignal] filter:^BOOL(NSString *length) {
+        return [length length] > 3;
     }] subscribeNext:^(id x) {
         NSLog(@"password ---- %@", x);
+    }];
+    
+    RAC(self.loginButton, backgroundColor) = [RACSignal combineLatest:@[self.usernameTextField.rac_textSignal, self.passwordTextField.rac_textSignal]
+                                                               reduce:^(NSString *username, NSString *password){
+                                                                   if (username.length >= 3 && password.length >= 3) {
+                                                                       self.loginButton.enabled = YES;
+                                                                       return [UIColor redColor];
+                                                                   } else {
+                                                                       return [UIColor blueColor];
+                                                                   }
+                                                                }];
+    
+//   RAC(self.loginButton, enabled) = [RACSignal combineLatest:@[self.usernameTextField.rac_textSignal,
+//                                                               self.passwordTextField.rac_textSignal]
+//                                                      reduce:^(NSString *username, NSString *password){
+//                                                          NSLog(@"username - %@, password -- %@", username, password);
+//                                                          return @(username.length > 0 && password.length > 0);
+//                                                      }];
+    
+    [[self.loginButton rac_signalForControlEvents:(UIControlEventTouchUpInside)] subscribeNext:^(id x) {
+        NSLog(@"%s", __func__);
     }];
 }
 
