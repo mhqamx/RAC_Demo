@@ -80,13 +80,6 @@
                                                                    }
                                                                 }];
     
-//   RAC(self.loginButton, enabled) = [RACSignal combineLatest:@[self.usernameTextField.rac_textSignal,
-//                                                               self.passwordTextField.rac_textSignal]
-//                                                      reduce:^(NSString *username, NSString *password){
-//                                                          NSLog(@"username - %@, password -- %@", username, password);
-//                                                          return @(username.length > 0 && password.length > 0);
-//                                                      }];
-    
     [[self.loginButton rac_signalForControlEvents:(UIControlEventTouchUpInside)] subscribeNext:^(id x) {
         NSLog(@"%s", __func__);
     }];

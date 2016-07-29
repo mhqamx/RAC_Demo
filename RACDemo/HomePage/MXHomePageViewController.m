@@ -10,10 +10,10 @@
 #import "ViewController.h"
 #import "MXMainViewController.h"
 #import "MXReviewViewController.h"
+#import "MXMethodsViewController.h"
 @interface MXHomePageViewController ()<UITableViewDelegate, UITableViewDataSource>
 @property (nonatomic, strong) UITableView  *mainTableView;
 @property (nonatomic, strong) NSArray  *dataArr;
-
 
 @end
 
@@ -31,7 +31,7 @@
 }
 
 -(NSArray *)dataArr {
-    return @[@"知识点", @"RAC协议传值", @"复习"];
+    return @[@"知识点", @"RAC协议传值", @"复习", @"方法"];
 }
 
 - (void)viewDidLoad {
@@ -64,7 +64,7 @@
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
     
-    return 3;
+    return self.dataArr.count;
 }
 
 -(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
@@ -78,7 +78,8 @@
         case 2:
             [self.navigationController pushViewController:[MXReviewViewController new] animated:YES];
             break;
-            
+            case 3:
+            [self.navigationController pushViewController:[MXMethodsViewController new] animated:YES];
         default:
             break;
     }

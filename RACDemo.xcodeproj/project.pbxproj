@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		0519F9B31D4AF28200A9C76F /* MXMethodsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0519F9B21D4AF28200A9C76F /* MXMethodsViewController.m */; };
 		0548609B1D34B9AD008B4D56 /* GFHTTPManger.m in Sources */ = {isa = PBXBuildFile; fileRef = 054860961D34B9AD008B4D56 /* GFHTTPManger.m */; };
 		0548609C1D34B9AD008B4D56 /* GFHTTPManger+Uniform.m in Sources */ = {isa = PBXBuildFile; fileRef = 054860981D34B9AD008B4D56 /* GFHTTPManger+Uniform.m */; };
 		054860B11D34B9E1008B4D56 /* AFHTTPRequestOperation.m in Sources */ = {isa = PBXBuildFile; fileRef = 0548609F1D34B9E1008B4D56 /* AFHTTPRequestOperation.m */; };
@@ -51,6 +52,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		0519F9B11D4AF28200A9C76F /* MXMethodsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MXMethodsViewController.h; sourceTree = "<group>"; };
+		0519F9B21D4AF28200A9C76F /* MXMethodsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MXMethodsViewController.m; sourceTree = "<group>"; };
 		054860951D34B9AD008B4D56 /* GFHTTPManger.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GFHTTPManger.h; sourceTree = "<group>"; };
 		054860961D34B9AD008B4D56 /* GFHTTPManger.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GFHTTPManger.m; sourceTree = "<group>"; };
 		054860971D34B9AD008B4D56 /* GFHTTPManger+Uniform.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "GFHTTPManger+Uniform.h"; sourceTree = "<group>"; };
@@ -132,6 +135,15 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		0519F9B01D4AF26C00A9C76F /* 方法合集 */ = {
+			isa = PBXGroup;
+			children = (
+				0519F9B11D4AF28200A9C76F /* MXMethodsViewController.h */,
+				0519F9B21D4AF28200A9C76F /* MXMethodsViewController.m */,
+			);
+			path = "方法合集";
+			sourceTree = "<group>";
+		};
 		0548609D1D34B9E1008B4D56 /* AFNetworking */ = {
 			isa = PBXGroup;
 			children = (
@@ -192,6 +204,7 @@
 		05BC389F1D34903100E1AE05 /* RACDemo */ = {
 			isa = PBXGroup;
 			children = (
+				0519F9B01D4AF26C00A9C76F /* 方法合集 */,
 				059FA0201D3E0D4D00F85639 /* HomePage */,
 				0548609D1D34B9E1008B4D56 /* AFNetworking */,
 				054860951D34B9AD008B4D56 /* GFHTTPManger.h */,
@@ -459,6 +472,7 @@
 				05BC38A51D34903100E1AE05 /* AppDelegate.m in Sources */,
 				054860B21D34B9E1008B4D56 /* AFHTTPRequestOperationManager.m in Sources */,
 				054860B51D34B9E1008B4D56 /* AFSecurityPolicy.m in Sources */,
+				0519F9B31D4AF28200A9C76F /* MXMethodsViewController.m in Sources */,
 				05BC38A21D34903100E1AE05 /* main.m in Sources */,
 				0548609C1D34B9AD008B4D56 /* GFHTTPManger+Uniform.m in Sources */,
 				054860B31D34B9E1008B4D56 /* AFHTTPSessionManager.m in Sources */,
@@ -607,7 +621,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				INFOPLIST_FILE = RACDemo/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "com.github.com-mhqamx.RACDemo";
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -620,7 +634,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				INFOPLIST_FILE = RACDemo/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "com.github.com-mhqamx.RACDemo";
 				PRODUCT_NAME = "$(TARGET_NAME)";
