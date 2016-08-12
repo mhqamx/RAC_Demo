@@ -207,7 +207,9 @@
     // rac_sendAsynchronousRequest 发起异步请求
     
     // 14、NSUserDefaults
-    // rac_channelTerminalForKey 用于双向绑定，此乃一
+    // rac_channelTerminalForKey 用于双向绑定，此乃
+    
+    // 15. 待续
     
 }
 
