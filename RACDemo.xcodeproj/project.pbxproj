@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		0519F9B31D4AF28200A9C76F /* MXMethodsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0519F9B21D4AF28200A9C76F /* MXMethodsViewController.m */; };
 		0530D3591D655A7D00AFA0C0 /* MXProjectMainViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0530D3581D655A7D00AFA0C0 /* MXProjectMainViewController.m */; };
+		0530D35C1D655B3600AFA0C0 /* MXProjectView.m in Sources */ = {isa = PBXBuildFile; fileRef = 0530D35B1D655B3600AFA0C0 /* MXProjectView.m */; };
 		0548609B1D34B9AD008B4D56 /* GFHTTPManger.m in Sources */ = {isa = PBXBuildFile; fileRef = 054860961D34B9AD008B4D56 /* GFHTTPManger.m */; };
 		0548609C1D34B9AD008B4D56 /* GFHTTPManger+Uniform.m in Sources */ = {isa = PBXBuildFile; fileRef = 054860981D34B9AD008B4D56 /* GFHTTPManger+Uniform.m */; };
 		054860B11D34B9E1008B4D56 /* AFHTTPRequestOperation.m in Sources */ = {isa = PBXBuildFile; fileRef = 0548609F1D34B9E1008B4D56 /* AFHTTPRequestOperation.m */; };
@@ -57,6 +58,8 @@
 		0519F9B21D4AF28200A9C76F /* MXMethodsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MXMethodsViewController.m; sourceTree = "<group>"; };
 		0530D3571D655A7D00AFA0C0 /* MXProjectMainViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MXProjectMainViewController.h; sourceTree = "<group>"; };
 		0530D3581D655A7D00AFA0C0 /* MXProjectMainViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MXProjectMainViewController.m; sourceTree = "<group>"; };
+		0530D35A1D655B3600AFA0C0 /* MXProjectView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MXProjectView.h; sourceTree = "<group>"; };
+		0530D35B1D655B3600AFA0C0 /* MXProjectView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MXProjectView.m; sourceTree = "<group>"; };
 		054860951D34B9AD008B4D56 /* GFHTTPManger.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GFHTTPManger.h; sourceTree = "<group>"; };
 		054860961D34B9AD008B4D56 /* GFHTTPManger.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GFHTTPManger.m; sourceTree = "<group>"; };
 		054860971D34B9AD008B4D56 /* GFHTTPManger+Uniform.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "GFHTTPManger+Uniform.h"; sourceTree = "<group>"; };
@@ -168,6 +171,8 @@
 		0530D3541D6558A400AFA0C0 /* View */ = {
 			isa = PBXGroup;
 			children = (
+				0530D35A1D655B3600AFA0C0 /* MXProjectView.h */,
+				0530D35B1D655B3600AFA0C0 /* MXProjectView.m */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -504,6 +509,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				054860B61D34B9E1008B4D56 /* AFURLConnectionOperation.m in Sources */,
+				0530D35C1D655B3600AFA0C0 /* MXProjectView.m in Sources */,
 				054860B11D34B9E1008B4D56 /* AFHTTPRequestOperation.m in Sources */,
 				054860B41D34B9E1008B4D56 /* AFNetworkReachabilityManager.m in Sources */,
 				059FA0261D3E0F2900F85639 /* MXReviewViewController.m in Sources */,
