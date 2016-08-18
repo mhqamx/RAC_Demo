@@ -7,31 +7,50 @@
 //
 
 #import "MXProjectMainViewController.h"
-
+#import "MXProjectViewModel.h"
 @interface MXProjectMainViewController ()
-
+@property (nonatomic, strong) MXProjectViewModel  *viewModel;
+@property (nonatomic, strong) UILabel  *resultLabel;
 @end
 
 @implementation MXProjectMainViewController
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    // Do any additional setup after loading the view.
+    self.navigationItem.title = @"MVVM";
+    self.view.backgroundColor = [UIColor whiteColor];
+    [self configUI];
+    [self loadProjectViewModel];
+}
+
+- (void)configUI {
+    self.resultLabel = [[UILabel alloc] initWithFrame:CGRectMake(50, 50, self.view.frame.size.width - 100, 50)];
+    self.resultLabel.backgroundColor = [UIColor whiteColor];
+    self.resultLabel.textColor = [UIColor blackColor];
+    [self.view addSubview:self.resultLabel];
+}
+
+- (void)loadProjectViewModel {
+    [self.viewModel.signal subscribeNext:^(id x) {
+        NSLog(@"%s", __func__);
+    } error:^(NSError *error) {
+        self.resultLabel.text = @"RACSignal send Error";
+        NSLog(@"%@", error);
+    } completed:^{
+        self.resultLabel.text = @"RACSignal send Completed";
+        NSLog(@"completed");
+    }];
+}
+
+- (MXProjectViewModel *)viewModel {
+    if (!_viewModel) {
+        _viewModel = [[MXProjectViewModel alloc] init];
+    }
+    return _viewModel;
 }
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
 }
-
-/*
-#pragma mark - Navigation
-
-// In a storyboard-based application, you will often want to do a little preparation before navigation
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
-}
-*/
-
 @end

@@ -11,6 +11,7 @@
 #import "MXMainViewController.h"
 #import "MXReviewViewController.h"
 #import "MXMethodsViewController.h"
+#import "MXProjectMainViewController.h"
 @interface MXHomePageViewController ()<UITableViewDelegate, UITableViewDataSource>
 @property (nonatomic, strong) UITableView  *mainTableView;
 @property (nonatomic, strong) NSArray  *dataArr;
@@ -31,7 +32,7 @@
 }
 
 -(NSArray *)dataArr {
-    return @[@"知识点", @"RAC协议传值", @"复习", @"方法"];
+    return @[@"知识点", @"RAC协议传值", @"复习", @"方法", @"MVVM"];
 }
 
 - (void)viewDidLoad {
@@ -78,8 +79,12 @@
         case 2:
             [self.navigationController pushViewController:[MXReviewViewController new] animated:YES];
             break;
-            case 3:
+        case 3:
             [self.navigationController pushViewController:[MXMethodsViewController new] animated:YES];
+            break;
+        case 4:
+            [self.navigationController pushViewController:[MXProjectMainViewController new] animated:YES];
+            break;
         default:
             break;
     }
