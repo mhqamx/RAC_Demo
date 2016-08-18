@@ -144,6 +144,45 @@
 			path = "方法合集";
 			sourceTree = "<group>";
 		};
+		0530D3521D6558A400AFA0C0 /* MVVM */ = {
+			isa = PBXGroup;
+			children = (
+				0530D3531D6558A400AFA0C0 /* Model */,
+				0530D3541D6558A400AFA0C0 /* View */,
+				0530D3551D6558A400AFA0C0 /* ViewController */,
+				0530D3561D6558A400AFA0C0 /* ViewModel */,
+			);
+			path = MVVM;
+			sourceTree = "<group>";
+		};
+		0530D3531D6558A400AFA0C0 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		0530D3541D6558A400AFA0C0 /* View */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		0530D3551D6558A400AFA0C0 /* ViewController */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = ViewController;
+			sourceTree = "<group>";
+		};
+		0530D3561D6558A400AFA0C0 /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = ViewModel;
+			sourceTree = "<group>";
+		};
 		0548609D1D34B9E1008B4D56 /* AFNetworking */ = {
 			isa = PBXGroup;
 			children = (
@@ -204,6 +243,7 @@
 		05BC389F1D34903100E1AE05 /* RACDemo */ = {
 			isa = PBXGroup;
 			children = (
+				0530D3521D6558A400AFA0C0 /* MVVM */,
 				0519F9B01D4AF26C00A9C76F /* 方法合集 */,
 				059FA0201D3E0D4D00F85639 /* HomePage */,
 				0548609D1D34B9E1008B4D56 /* AFNetworking */,
