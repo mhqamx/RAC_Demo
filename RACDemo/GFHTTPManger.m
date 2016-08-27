@@ -19,6 +19,9 @@
     return manger;
 }
 
+/**
+ *  不知道这个方法对应的是什么
+ */
 //+ (NSString *)fullUrlString:(NSString *)urlString {
 //    return [APIRootBsseURL stringByAppendingString:urlString];
 //}
