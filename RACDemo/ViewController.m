@@ -422,15 +422,4 @@
     return _commandDelete;
 }
 
-#pragma mark - UIAlterView - Delegate
-
-- (void)alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex {
-    
-}
-
-- (void)RACRelaySubjectTest {
-     
-}
-
-
 @end
