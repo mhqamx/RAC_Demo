@@ -425,16 +425,11 @@
 #pragma mark ------- 2016.9.13
 // 就要过中秋节了 祝大家都和家人团团圆圆 中秋快乐 吃月饼 螃蟹啦
 
-<<<<<<< HEAD
 #pragma mark - dev分支创建
 
 #pragma mark - 测试branch分支 --- 9:31
 // 测试一下git分支
 
-=======
-#pragma mark - 测试branch分支 --- 9:31
-// 测试一下git分支
+#pragma mark - 测试分支的合并 --- 10:59
 
-
->>>>>>> dev
 @end
